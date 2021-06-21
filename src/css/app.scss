@@ -4,3 +4,211 @@ html { font-family: 'Inter', sans-serif; }
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
 }
+
+table a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.bg-aleph-radial {
+  background: linear-gradient(83.49deg, #71C9FA -108.79%, #0054FF 76.92%);
+}
+
+.bg-blue-f {
+  background: linear-gradient(90.01deg, #8BFFDC -34.36%, #95C4FF 112.21%);
+}
+
+.bg-inactive {
+  background: #95C4FF;
+}
+
+
+.expander-title {
+background: #263944;
+}
+
+.bg-dark-60 {
+background: #1D2A31;
+}
+
+.bg-dark-50 {
+background: #223038;
+}
+
+.bg-dark-40 {
+background: #263944;
+}
+
+.bg-dark-30 {
+background: #565F64;
+}
+
+.text-dark-30 {
+color: #565F64;
+}
+
+.bg-dark-20 {
+background: #91989C;
+}
+
+.bg-dark-10 {
+background: #C8CBCD;
+}
+
+
+
+.radius-4 {
+border-radius: 4px;
+}
+
+.text-inactive {
+  color: #95C4FF;
+}
+
+.text-light-blue {
+  color: #71C9FA;
+}
+
+.q-btn {
+  text-transform: none;
+}
+
+strong {
+font-weight: 700;
+}
+
+#WEB3_CONNECT_MODAL_ID {
+z-index: 100;
+}
+
+.status-pill {
+display: inline-block;
+border-radius: 3px;
+width: 8px;
+height: 8px;
+vertical-align: baseline;
+}
+
+.q-item.standout {
+border-radius: $generic-border-radius;
+background: #FAFAFA;
+margin-bottom: 1em;
+}
+
+.body--dark {
+.bg-card {
+  background: #2E363B;
+  border-color: #383838;
+}
+
+.bg-expand {
+  background: #263944;
+}
+
+.bg-card-expand {
+  background: #394b57;
+}
+
+.q-item.standout {
+  background-color: #223038;
+}
+}
+.bg-card {
+background: #FAFAFA;
+border-color: #FAFAFA;
+}
+
+.q-field--standout.q-field--dark .q-field__control {
+background: #223038;
+}
+
+.bg-dark50 {
+background: #223038;
+}
+
+.q-card {
+.text-h6 {
+  font-size: 25px;
+  font-weight: 700;
+}
+}
+
+hr.q-separator--dark {
+background-color: #91989C;
+opacity: .25;
+}
+
+.login-info {
+text-align: right;
+color: #565F64;
+font-size: 150%;
+font-weight: 800;
+padding-top: 1em;
+padding-right: 1.5em;
+margin-right: 7em;
+margin-top: -1em;
+// background: url('../assets/icons/chevron-topright.svg') top right no-repeat;
+background-size: 1em;
+filter: contrast(5%);
+}
+
+.doc-note {
+background-color:#eee;
+border-radius:4px;
+margin:16px 0;
+padding:16px 24px;
+font-size:1em;
+border-width:0 5px;
+border-style:solid;
+border-color:#9e9e9e;
+letter-spacing:0.5px
+}
+
+.doc-note .doc-token {
+color:#000
+}
+
+.doc-note>p,
+.doc-note>ul {
+margin-bottom:0
+}
+
+.doc-note {
+color: #000;
+background-color: #eee;
+border-radius: 4px;
+margin: 16px 0;
+    margin-bottom: 16px;
+padding: 8px 24px;
+font-size: 1em;
+border-width: 0 5px;
+border-style: solid;
+border-color: #9e9e9e;
+letter-spacing: 0.5px;
+.title {
+  font-weight: 600;
+}
+}
+
+.doc-note--tip {
+background-color: #c1f4cd;
+border-color: #21ba45;
+}
+
+.doc-note--warning {
+background-color:#f9e09b;
+border-color:#f2c037;
+a, i {
+  color:#99730a;
+}
+}
+
+.doc-note--danger {
+background-color:#ffc0c6;
+border-color: #c10015;
+a, i {
+  color:#910010;
+}
+}

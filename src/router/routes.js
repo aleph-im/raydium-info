@@ -7,7 +7,7 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue'), name: "index" },
       {
-        path: '/pools/:ammId',
+        path: '/pools/:address',
         component: () => import('pages/Pool.vue'),
         name: "pool",
         props: true

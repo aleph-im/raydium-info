@@ -1,17 +1,24 @@
 
 <template>
-  <q-page class="">
+  <q-page class="q-pa-md">
 
       <q-table
         title="Pools"
-        :rows="pools"
+        :rows="displayed_pools"
         :columns="poolcols"
         row-key="name"
+        :pagination="{rowsPerPage: 25}"
       >
         <template v-slot:body="props">
           <q-tr :props="props">
-            <q-td key="name" :props="props">
-              <router-link :to="{ name: 'pool', params: { ammId: props.row.ammId }}">
+            <q-td key="name" :props="props" class="text-white">
+              <router-link :to="{ name: 'pool', params: { address: props.row.ammId }}"  class="text-white text-bold">
+              <q-avatar size="xs">
+                <img :src="props.row.coin.logoURI">
+              </q-avatar>
+              <q-avatar size="xs">
+                <img :src="props.row.pc.logoURI">
+              </q-avatar>
                 {{ props.row.name }}
               </router-link>
             </q-td>
@@ -32,28 +39,25 @@
 
 <script>
 import { defineComponent } from 'vue'
-import axios from "axios"
+
+import poolquery from '../queries/pools.gql'
+import { client } from '../services/graphql'
 
 export default defineComponent({
   name: 'IndexPage',
+  computed: {
+    displayed_pools() {
+      console.log(this.pools)
+      console.log( this.pools.filter((pool) => pool.version > 2))
+      return this.pools.filter((pool) => pool.version > 2)
+    }
+  },
   async setup() {
-    let result = await axios({
-        method: "POST",
-        url: "http://localhost:8080",
-        data: {
-            query: `
-                {
-                    pools {
-                        ammId,
-                        name
-                    }
-                }
-            `
-        }
-    });
+    let result = await client.request(poolquery)
+    console.log(result)
 
     return {
-      pools: result.data.data.pools,
+      pools: result.pools,
       poolcols: [
         {
           name: 'name',

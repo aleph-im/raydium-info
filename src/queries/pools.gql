@@ -1,0 +1,31 @@
+{
+    pools {
+        ammId
+        name
+        version
+        coin {
+            chainId
+            address
+            name
+            decimals
+            symbol
+            logoURI
+        }
+        pc {
+            chainId
+            address
+            name
+            decimals
+            symbol
+            logoURI
+        }
+        lp {
+            chainId
+            address
+            name
+            decimals
+            symbol
+            logoURI
+        }
+    }
+}

@@ -1,0 +1,62 @@
+query pool_detail($address: String!) {
+  pool(address: $address) {
+    ammId
+    name
+    version
+    coin {
+      address
+      name
+      decimals
+      symbol
+      logoURI
+    }
+    pc {
+      address
+      name
+      decimals
+      symbol
+      logoURI
+    }
+    lp {
+      address
+      name
+      decimals
+      symbol
+    }
+  }
+
+  events(address: $address, limit: 500) {
+    signature
+    blockTime
+    type
+    meta {
+      pool {
+        name
+        coin {
+          symbol
+          decimals
+        }
+        pc {
+          symbol
+          decimals
+        }
+      }
+      source_amount
+      source_token {
+        symbol
+        decimals
+      }
+      target_amount
+      target_token {
+        symbol
+        decimals
+      }
+      coin_amount
+      pc_amount
+      lp_amount
+      usd_value
+      direction
+      owner
+    }
+  }
+}

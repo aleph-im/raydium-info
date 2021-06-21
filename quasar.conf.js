@@ -65,7 +65,15 @@ module.exports = configure(function (ctx) {
 
       // https://v2.quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpack (/* chain */) {
+      chainWebpack (chain, { isServer, isClient }) {
+        chain.module.rule('graphql')
+          .test(/\.(graphql|gql)$/)
+          .enforce('pre')
+          .exclude
+            .add((/[\\/]node_modules[\\/]/))
+            .end()
+          .use('graphql-tag/loader')
+            .loader('graphql-tag/loader')
         //
       },
     },
@@ -79,7 +87,9 @@ module.exports = configure(function (ctx) {
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
-      config: {},
+      config: {
+        dark: true
+      },
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack

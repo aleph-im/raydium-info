@@ -9,6 +9,9 @@ module.exports = api => {
           ? { targets: { node: 'current' } }
           : {}
       ]
+    ],
+    plugins: [
+      "graphql-tag"
     ]
   }
 }
