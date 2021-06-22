@@ -212,3 +212,14 @@ a, i {
   color:#910010;
 }
 }
+
+
+td.address {
+	text-overflow: ellipsis;
+	max-width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	
+	/* for good looks */
+	padding: 10px;
+}
