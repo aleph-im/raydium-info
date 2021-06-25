@@ -27,5 +27,10 @@
             symbol
             logoURI
         }
+        stats {
+            tvl_usd
+            price
+            vol24h
+        }
     }
 }

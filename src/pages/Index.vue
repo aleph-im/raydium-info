@@ -23,13 +23,10 @@
               </router-link>
             </q-td>
             <q-td key="tvl" :props="props">
-              {{ props.row.tvl }}
+              {{ numeral(props.row.tvl).format("0,0 $") }}
             </q-td>
             <q-td key="vol24h" :props="props">
-              {{ props.row.vol24h }}
-            </q-td>
-            <q-td key="vol7d" :props="props">
-              {{ props.row.vol7d }}
+              {{ numeral(props.row.vol24h).format("0,0 $") }}
             </q-td>
           </q-tr>
         </template>
@@ -42,6 +39,8 @@ import { defineComponent } from 'vue'
 
 import poolquery from '../queries/pools.gql'
 import { client } from '../services/graphql'
+import numeral from "numeral"
+import moment from "moment"
 
 export default defineComponent({
   name: 'IndexPage',
@@ -49,7 +48,13 @@ export default defineComponent({
     displayed_pools() {
       console.log(this.pools)
       console.log( this.pools.filter((pool) => pool.version > 2))
-      return this.pools.filter((pool) => pool.version > 2)
+      return this.pools.filter((pool) => pool.version > 2).map((pool) => ({
+        tvl: pool.stats.tvl_usd,
+        vol24h: pool.stats.vol24h,
+        ...pool
+      })).sort((a, b) => (
+        a.tvl < b.tvl
+      ))
     }
   },
   async setup() {
@@ -63,24 +68,23 @@ export default defineComponent({
           name: 'name',
           label: 'Pool name',
           field: 'name',
-          align: 'left'
+          align: 'left',
+          sortable: true
         },
         {
           'name': 'tvl',
           'label': 'TVL',
-          'field': 'tvl'
+          'field': 'tvl',
+          sortable: true
         },
         {
           'name': 'vol24h',
           'label': 'Volume (24h)',
-          'field': 'vol24h'
-        },
-        {
-          'name': 'vol7d',
-          'label': 'Volume (7d)',
-          'field': 'vol7d'
+          'field': 'vol24h',
+          sortable: true
         }
-      ]
+      ],
+      numeral: numeral
     }
   }
 

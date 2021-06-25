@@ -23,9 +23,17 @@ query pool_detail($address: String!) {
       decimals
       symbol
     }
+    stats {
+      vol24h
+      vol7d
+      price
+      tvl_coin
+      tvl_pc
+      tvl_usd
+    }
   }
 
-  events(address: $address, limit: 500) {
+  events(address: $address, limit: 100, max_scan:50000) {
     signature
     blockTime
     type
@@ -58,5 +66,14 @@ query pool_detail($address: String!) {
       direction
       owner
     }
+  }
+
+  pool_hourly_data(address: $address) {
+    time
+    price
+    tvl_coin
+    tvl_pc
+    tvl_usd
+    volume
   }
 }

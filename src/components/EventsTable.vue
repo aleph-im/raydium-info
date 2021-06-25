@@ -75,7 +75,7 @@ export default defineComponent({
   computed: {
     filteredEvents() {
       let events = this.events.filter((ev) => (
-        (!ev.meta.usd_value)||(ev.meta.usd_value > 1)
+        (!ev.meta.usd_value)||(ev.meta.usd_value > 10)
       ))
       if (this.tab === "all")
         return events
