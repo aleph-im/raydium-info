@@ -33,41 +33,6 @@ query pool_detail($address: String!) {
     }
   }
 
-  events(address: $address, limit: 100, max_scan:25000) {
-    signature
-    blockTime
-    type
-    meta {
-      pool {
-        name
-        coin {
-          symbol
-          decimals
-        }
-        pc {
-          symbol
-          decimals
-        }
-      }
-      source_amount
-      source_token {
-        symbol
-        decimals
-      }
-      target_amount
-      target_token {
-        symbol
-        decimals
-      }
-      coin_amount
-      pc_amount
-      lp_amount
-      usd_value
-      direction
-      owner
-    }
-  }
-
   pool_hourly_data(address: $address) {
     time
     price

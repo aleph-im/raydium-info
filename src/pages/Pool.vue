@@ -106,7 +106,19 @@
         </q-card>
       </div>
     </div>
-    <events-table :events="events" />
+    <suspense>
+      <template #default>
+        <events-history :address="address" />
+      </template>
+      <template #fallback>
+        <div class="flex flex-center">
+          <q-spinner-pie
+            color="white"
+            size="4em"
+          />
+        </div>
+      </template>
+    </suspense>
   </q-page>
 </template>
 
@@ -119,9 +131,10 @@ import { client } from "../services/graphql";
 import numeral from "numeral";
 import moment from "moment";
 import EventsTable from "src/components/EventsTable.vue";
+import EventsHistory from "src/components/EventsHistory.vue";
 
 export default defineComponent({
-  components: { EventsTable },
+  components: { EventsTable, EventsHistory },
   name: "PoolPage",
   props: {
     address: String,
