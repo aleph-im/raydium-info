@@ -1,13 +1,14 @@
 
 <template>
   <q-page class="q-pa-md">
-
+    <div class="bg-raydium-gradient rounded-borders q-pa-one">
       <q-table
         title="Pools"
         :rows="displayed_pools"
         :columns="poolcols"
         row-key="name"
         :pagination="{rowsPerPage: 25}"
+        class="bg-dark-opacity"
       >
         <template v-slot:body="props">
           <q-tr :props="props">
@@ -31,6 +32,7 @@
           </q-tr>
         </template>
       </q-table>
+    </div>
   </q-page>
 </template>
 

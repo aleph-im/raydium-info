@@ -4,7 +4,7 @@
       <router-view />
     </template>
     <template #fallback>
-      <span>I'm a loading screen, I'm waiting the view to be ready!</span>
+      <span>Loading</span>
     </template>
   </Suspense>
 </template>

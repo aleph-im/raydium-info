@@ -32,37 +32,40 @@
     <div class="flex q-gutter-md q-mb-md items-stretch">
       <q-card class="bg-card col-auto" style="min-width: 300px">
         <q-card-section>
-          <q-card class="shadow-0 bg-dark-60">
-            <q-card-section>
-              <h6 class="q-ma-none q-pb-sm">Total tokens locked</h6>
-              <div
-                class="row justify-between items-center q-mb-sm q-gutter-md"
-              >
-                <span>
-                  <q-avatar size="sm">
-                    <img :src="pool.coin.logoURI" />
-                  </q-avatar>
-                  {{ pool.coin.symbol }}
-                </span>
-                <span>
-                  {{ numeral(pool.stats.tvl_coin).format("0,0.00") }}
-                </span>
-              </div>
-              <div
-                class="row justify-between items-center q-mb-sm q-gutter-md"
-              >
-                <span>
-                  <q-avatar size="sm">
-                    <img :src="pool.pc.logoURI" />
-                  </q-avatar>
-                  {{ pool.pc.symbol }}
-                </span>
-                <span>
-                  {{ numeral(pool.stats.tvl_pc).format("0,0.00") }}
-                </span>
-              </div>
-            </q-card-section>
-          </q-card>
+
+          <div class="bg-raydium-gradient rounded-borders q-pa-one">
+            <q-card class="shadow-0 bg-dark-opacity">
+              <q-card-section>
+                <h6 class="q-ma-none q-pb-sm">Total tokens locked</h6>
+                <div
+                  class="row justify-between items-center q-mb-sm q-gutter-md"
+                >
+                  <span>
+                    <q-avatar size="sm">
+                      <img :src="pool.coin.logoURI" />
+                    </q-avatar>
+                    {{ pool.coin.symbol }}
+                  </span>
+                  <span>
+                    {{ numeral(pool.stats.tvl_coin).format("0,0.00") }}
+                  </span>
+                </div>
+                <div
+                  class="row justify-between items-center q-mb-sm q-gutter-md"
+                >
+                  <span>
+                    <q-avatar size="sm">
+                      <img :src="pool.pc.logoURI" />
+                    </q-avatar>
+                    {{ pool.pc.symbol }}
+                  </span>
+                  <span>
+                    {{ numeral(pool.stats.tvl_pc).format("0,0.00") }}
+                  </span>
+                </div>
+              </q-card-section>
+            </q-card>
+          </div>
           <p class="q-pt-md text-bold q-mb-none">TVL</p>
           <p class="text-h5">
             {{ numeral(pool.stats.tvl_usd).format("0,0 $") }}
@@ -80,9 +83,9 @@
             dense
             class="text-grey"
             active-color="white"
-            indicator-color="white"
             align="right"
             narrow-indicator
+            indicator-color="raydium-purple"
           >
             <q-tab name="price" label="Price" />
             <q-tab name="tvl" label="TVL" />
@@ -195,8 +198,7 @@ export default defineComponent({
         yaxis: {
           labels: {
             formatter: function (val) {
-              if (has_usd)
-                return numeral(val).format(tvl_format);
+              return numeral(val).format(tvl_format);
             }
           }
         },

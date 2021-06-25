@@ -5,6 +5,10 @@ html { font-family: 'Inter', sans-serif; }
   html { font-family: 'Inter var', sans-serif; }
 }
 
+body.body--dark {
+  background: #131a35;
+}
+
 table a {
   color: #fff;
   text-decoration: none;
@@ -57,6 +61,26 @@ background: #91989C;
 background: #C8CBCD;
 }
 
+
+.bg-raydium-gradient {
+  background: linear-gradient(245.22deg,#c200fb 7.97%,#3772ff 49.17%,#3773fe 0,#5ac4be 92.1%);
+}
+
+.bg-raydium-purple {
+  background-color: #6a49fe;
+}
+
+.text-raydium-purple {
+  color: #6a49fe;
+}
+
+.q-pa-one {
+  padding: 1px;
+}
+
+.bg-dark-opacity {
+  background-color: rgba(19,26,53,0.9);
+}
 
 
 .radius-4 {
