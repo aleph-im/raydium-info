@@ -21,7 +21,8 @@ module.exports = configure(function (ctx) {
     // https://v2.quasar.dev/quasar-cli/boot-files
     boot: [
       // 'i18n',
-      'axios'
+      'axios',
+      'apexcharts'
     ],
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -90,6 +91,8 @@ module.exports = configure(function (ctx) {
       config: {
         dark: true
       },
+
+      // cssAddon: true,
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
