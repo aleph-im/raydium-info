@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lhh LpR lff">
+  <q-layout view="lhh LpR lff" class="q-mb-xl">
     <q-header :class="($q.dark.isActive?'text-white':'text-black') + ' bg-transparent q-pa-sm'">
       <q-toolbar>
         <router-link to="/">
@@ -13,7 +13,9 @@
           />
         </q-tabs>
         <q-space />
-        <img src="../assets/aleph-logo-powered.svg" height="30"/>
+        <a href="https://aleph.im">
+          <img src="../assets/aleph-logo-powered.svg" height="30"/>
+        </a>
       </q-toolbar>
     </q-header>
 

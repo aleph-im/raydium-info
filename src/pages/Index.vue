@@ -1,6 +1,6 @@
 
 <template>
-  <q-page class="q-pa-md">
+  <q-page class="q-pa-xl">
     <div class="bg-raydium-gradient rounded-borders q-pa-one">
       <q-table
         title="Pools"
