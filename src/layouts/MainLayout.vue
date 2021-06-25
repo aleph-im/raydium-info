@@ -2,36 +2,20 @@
   <q-layout view="lhh LpR lff">
     <q-header :class="($q.dark.isActive?'text-white':'text-black') + ' bg-transparent q-pa-sm'">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Raydium Info
-        </q-toolbar-title>
+        <router-link to="/">
+          <img src="../assets/raydium-logo-analytics.svg" height="50" class="q-mr-md" />
+        </router-link>
+        <q-tabs>
+          <q-route-tab
+            to="/"
+            label="Dashboard"
+            exact
+          />
+        </q-tabs>
+        <q-space />
+        <img src="../assets/aleph-logo-powered.svg" height="30"/>
       </q-toolbar>
     </q-header>
-
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" content-class="column justify-between q-pa-md" :width="250">
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
 
     <q-page-container class="content">
       <template #default>
