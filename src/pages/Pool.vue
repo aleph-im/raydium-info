@@ -124,10 +124,11 @@
 
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
-import poolquery from "../queries/pool_detail.gql";
-import { client } from "../services/graphql";
+import poolquery from "../queries/pool_detail.gql"
+import { client } from "../services/graphql"
+import { get_token } from '../services/tokens'
 import numeral from "numeral";
 import moment from "moment";
 import EventsTable from "src/components/EventsTable.vue";
@@ -293,6 +294,8 @@ export default defineComponent({
     let result = await client.request(poolquery, {
       address: props.address,
     });
+    result.pool.coin = get_token(result.pool.coin.address, result.pool.coin)
+    result.pool.pc = get_token(result.pool.pc.address, result.pool.pc)
     return {
       numeral,
       ...result,

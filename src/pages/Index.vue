@@ -41,6 +41,7 @@ import { defineComponent } from 'vue'
 
 import poolquery from '../queries/pools.gql'
 import { client } from '../services/graphql'
+import { get_token } from '../services/tokens'
 import numeral from "numeral"
 import moment from "moment"
 
@@ -56,7 +57,11 @@ export default defineComponent({
         ...pool
       })).sort((a, b) => (
         a.tvl < b.tvl
-      ))
+      )).map((p) => ({
+        coin: get_token(p.coin.address, p.coin),
+        pc: get_token(p.pc.address, p.pc),
+        ...p
+      }))
     }
   },
   async setup() {
