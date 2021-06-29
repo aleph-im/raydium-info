@@ -25,8 +25,8 @@
         </q-card>
       </div>
       <div class="q-gutter-md">
-        <q-btn color="card" label="Add liquidity" type="a" :href="`https://raydium.io/liquidity/?ammId=${pool.ammId}`" />
-        <q-btn color="primary" label="Swap" type="a" :href="`https://raydium.io/swap/?ammId=${pool.ammId}`" />
+        <q-btn color="card" label="Add liquidity" type="a" :href="`https://raydium.io/liquidity/?ammId=${pool.ammId}`" target="_blank" rel="noopener" />
+        <q-btn color="primary" label="Swap" type="a" :href="`https://raydium.io/swap/?ammId=${pool.ammId}`" target="_blank" rel="noopener" />
       </div>
     </div>
     <div class="flex q-gutter-md q-mb-md items-stretch">

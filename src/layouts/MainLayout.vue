@@ -3,7 +3,7 @@
     <q-header :class="($q.dark.isActive?'text-white':'text-black') + ' bg-transparent q-pa-sm'">
       <q-toolbar>
         <router-link to="/">
-          <img src="../assets/raydium-logo-analytics.svg" height="50" class="q-mr-md" />
+          <img src="../assets/raydium-logo-analytics.svg" height="50" class="q-mr-md" alt="Raydium Analytics" />
         </router-link>
         <q-tabs indicator-color="raydium-purple">
           <q-route-tab
@@ -13,8 +13,8 @@
           />
         </q-tabs>
         <q-space />
-        <a href="https://aleph.im">
-          <img src="../assets/aleph-logo-powered.svg" height="30"/>
+        <a href="https://aleph.im" target="_blank" rel="noopener">
+          <img src="../assets/aleph-logo-powered.svg" height="30" alt="powered by aleph.im"/>
         </a>
       </q-toolbar>
     </q-header>
