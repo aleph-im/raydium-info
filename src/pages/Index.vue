@@ -49,19 +49,15 @@ export default defineComponent({
   name: 'IndexPage',
   computed: {
     displayed_pools() {
-      console.log(this.pools)
-      console.log( this.pools.filter((pool) => pool.version > 2))
       return this.pools.filter((pool) => pool.version > 2).map((pool) => ({
+        ...pool,
+        coin: get_token(pool.coin.address, pool.coin),
+        pc: get_token(pool.pc.address, pool.pc),
         tvl: pool.stats.tvl_usd,
         vol24h: pool.stats.vol24h,
-        ...pool
       })).sort((a, b) => (
         a.tvl < b.tvl
-      )).map((p) => ({
-        coin: get_token(p.coin.address, p.coin),
-        pc: get_token(p.pc.address, p.pc),
-        ...p
-      }))
+      ))
     }
   },
   async setup() {
