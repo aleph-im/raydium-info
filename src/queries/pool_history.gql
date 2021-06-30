@@ -1,5 +1,5 @@
 query pool_history($address: String!) {
-  events(address: $address, limit: 100, max_scan:25000) {
+  events(address: $address, limit: 500, max_scan:25000) {
     signature
     blockTime
     type

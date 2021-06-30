@@ -25,7 +25,7 @@
         <q-tr :props="props">
           <q-td key="title" :props="props" class="text-white" style="min-width: 350px">
             <a v-if="props.row.type == 'swap'" :href="`https://explorer.solana.com/tx/${props.row.signature}`">
-              Swap {{ props.row.meta.source_token.symbol }} for {{ props.row.meta.target_token.symbol }}
+              Swap {{ props.row.meta.source_token ? props.row.meta.source_token.symbol : "???" }} for {{  props.row.meta.target_token ? props.row.meta.target_token.symbol : "???" }}
             </a>
             <a v-else-if="props.row.type == 'deposit'" :href="`https://explorer.solana.com/tx/${props.row.signature}`">
               Add {{ props.row.meta.pool.coin.symbol }} and {{ props.row.meta.pool.pc.symbol }}
@@ -38,14 +38,18 @@
             {{ numeral(props.row.usd_value).format("0,0[.]00 $") }}
           </q-td>
           <q-td key="source_amount" :props="props">
+            <template v-if="props.row.source_token">
             {{ numeral(
               props.row.source_amount).divide(10**props.row.source_token.decimals)
               .format(`0,0[.]00`) }} {{props.row.source_token.symbol}}
+            </template>
           </q-td>
           <q-td key="target_amount" :props="props">
+            <template v-if="props.row.target_token">
             {{ numeral(
               props.row.target_amount).divide(10**props.row.target_token.decimals)
               .format(`0,0[.]00`) }} {{props.row.target_token.symbol}}
+            </template>
           </q-td>
           <q-td key="owner" :props="props" class="address">
             <a :href="`https://explorer.solana.com/address/${props.row.owner}`">

@@ -313,4 +313,7 @@ export default defineComponent({
 .apexcharts-tooltip-title {
   color: #000 !important;
 }
+.apexcharts-menu {
+  color: #000 !important;
+}
 </style>
