@@ -24,13 +24,13 @@
       <template v-slot:body="props">
         <q-tr :props="props">
           <q-td key="title" :props="props" class="text-white" style="min-width: 350px">
-            <a v-if="props.row.type == 'swap'" :href="`https://explorer.solana.com/tx/${props.row.signature}`">
+            <a v-if="props.row.type == 'swap'" :href="`https://solscan.io/tx/${props.row.signature}`" target="_blank" rel="noopener">
               Swap {{ props.row.meta.source_token ? props.row.meta.source_token.symbol : "???" }} for {{  props.row.meta.target_token ? props.row.meta.target_token.symbol : "???" }}
             </a>
-            <a v-else-if="props.row.type == 'deposit'" :href="`https://explorer.solana.com/tx/${props.row.signature}`">
+            <a v-else-if="props.row.type == 'deposit'" :href="`https://solscan.io/tx/${props.row.signature}`" target="_blank" rel="noopener">
               Add {{ props.row.meta.pool.coin.symbol }} and {{ props.row.meta.pool.pc.symbol }}
             </a>
-            <a v-else-if="props.row.type == 'withdraw'" :href="`https://explorer.solana.com/tx/${props.row.signature}`">
+            <a v-else-if="props.row.type == 'withdraw'" :href="`https://solscan.io/tx/${props.row.signature}`" target="_blank" rel="noopener">
               Remove {{ props.row.meta.pool.coin.symbol }} and {{ props.row.meta.pool.pc.symbol }}
             </a>
           </q-td>
@@ -52,7 +52,7 @@
             </template>
           </q-td>
           <q-td key="owner" :props="props" class="address">
-            <a :href="`https://explorer.solana.com/address/${props.row.owner}`">
+            <a :href="`https://solscan.io/account/${props.row.owner}`" target="_blank" rel="noopener">
               {{props.row.owner}}
             </a>
           </q-td>
