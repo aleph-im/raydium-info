@@ -54,7 +54,7 @@ export default defineComponent({
         coin: get_token(pool.coin.address, pool.coin),
         pc: get_token(pool.pc.address, pool.pc),
         tvl: pool.stats.tvl_usd,
-        vol24h: pool.stats.vol24h,
+        vol24h: pool.stats.vol24h_usd,
       })).sort((a, b) => (
         a.tvl < b.tvl
       ))

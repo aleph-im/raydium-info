@@ -30,7 +30,7 @@
         stats {
             tvl_usd
             price
-            vol24h
+            vol24h_usd
         }
     }
 }
