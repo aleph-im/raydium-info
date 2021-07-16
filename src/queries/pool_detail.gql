@@ -25,7 +25,9 @@ query pool_detail($address: String!) {
     }
     stats {
       vol24h
+      vol24h_usd
       vol7d
+      vol7d_usd
       price
       tvl_coin
       tvl_pc

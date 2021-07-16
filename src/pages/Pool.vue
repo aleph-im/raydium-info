@@ -10,7 +10,7 @@
       {{ pool.coin.symbol }}-{{ pool.pc.symbol }} Pool
     </h4>
     <div class="flex q-mb-md justify-between">
-      <div class="row q-gutter-sm">
+      <div class="row q-gutter-sm" v-if="pool.stats.price !== null">
         <q-card class="q-pa-sm bg-dark-60">
           <q-avatar size="sm">
             <img :src="pool.pc.logoURI" />
@@ -72,11 +72,11 @@
           </p>
           <p class="q-pt-md text-bold q-mb-none">Volume (24h)</p>
           <p class="text-h5">
-            {{ numeral(pool.stats.vol24h).format("0,0 $") }}
+            {{ numeral(pool.stats.vol24h_usd).format("0,0 $") }}
           </p>
         </q-card-section>
       </q-card>
-      <div class="col-grow">
+      <div class="col-grow"  v-if="pool_hourly_data">
         <q-card class="bg-card">
           <q-tabs
             v-model="chartTab"
