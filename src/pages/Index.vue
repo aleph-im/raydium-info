@@ -7,7 +7,11 @@
         :rows="displayed_pools"
         :columns="poolcols"
         row-key="name"
-        :pagination="{rowsPerPage: 25}"
+        :pagination="{
+          rowsPerPage: 25,
+          sortBy: 'tvl',
+          descending: true
+        }"
         class="bg-dark-opacity"
       >
         <template v-slot:body="props">
