@@ -24,7 +24,10 @@
               <q-avatar size="xs">
                 <img :src="props.row.pc.logoURI">
               </q-avatar>
-                {{ props.row.name }}
+                {{ props.row.coin.symbol }}-{{ props.row.pc.symbol }}
+                <q-tooltip>
+                  {{ props.row.coin.name }} / {{ props.row.pc.name }}
+                </q-tooltip>
               </router-link>
             </q-td>
             <q-td key="tvl" :props="props">
@@ -53,7 +56,7 @@ export default defineComponent({
   name: 'IndexPage',
   computed: {
     displayed_pools() {
-      return this.pools.filter((pool) => pool.version > 2).map((pool) => ({
+      return this.pools.map((pool) => ({
         ...pool,
         coin: get_token(pool.coin.address, pool.coin),
         pc: get_token(pool.pc.address, pool.pc),
