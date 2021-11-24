@@ -1,6 +1,24 @@
 
 <template>
   <q-page class="q-pa-xl">
+    <div class="row q-col-gutter-md q-mb-md">
+      <div class="col-12 col-md-6">
+        <q-card class="bg-raydium-gradient q-pa-one">
+          <q-card-section class="bg-dark-opacity">
+            <h6 class="q-ma-none">TVL</h6>
+            <p class="text-h5 q-my-md text-center">{{ numeral(tvl_usd).format("0,0 $") }}</p>
+          </q-card-section>
+        </q-card>
+      </div>
+      <div class="col-12 col-md-6">
+        <q-card class="bg-raydium-gradient q-pa-one">
+          <q-card-section class="bg-dark-opacity">
+            <h6 class="q-ma-none">24h Volume</h6>
+            <p class="text-h5 q-my-md text-center">{{ numeral(vol24h_usd).format("0,0 $") }}</p>
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
     <div class="bg-raydium-gradient rounded-borders q-pa-one">
       <q-table
         title="Pools"
@@ -12,8 +30,16 @@
           sortBy: 'tvl',
           descending: true
         }"
+        :filter="filter"
         class="bg-dark-opacity"
       >
+        <template v-slot:top-right>
+          <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </template>
         <template v-slot:body="props">
           <q-tr :props="props">
             <q-td key="name" :props="props" class="text-white">
@@ -54,6 +80,11 @@ import moment from "moment"
 
 export default defineComponent({
   name: 'IndexPage',
+  data() {
+    return {
+      'filter': ''
+    }
+  },
   computed: {
     displayed_pools() {
       return this.pools.map((pool) => ({
@@ -65,6 +96,12 @@ export default defineComponent({
       })).sort((a, b) => (
         a.tvl < b.tvl
       ))
+    },
+    vol24h_usd() {
+      return this.pools.reduce((v0, v1) => (v0 + v1.stats.vol24h_usd), 0)
+    },
+    tvl_usd() {
+      return this.pools.reduce((v0, v1) => (v0 + v1.stats.tvl_usd), 0)
     }
   },
   async setup() {
