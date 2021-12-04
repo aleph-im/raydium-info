@@ -1,0 +1,6 @@
+{
+    status {
+        state
+        last_blockTime
+    }
+}

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.10.7",
-    "apexcharts": "^3.27.1",
+    "apexcharts": "^3.31",
     "axios": "^0.21.1",
     "graphql": "^15.5.1",
     "graphql-request": "^3.4.0",

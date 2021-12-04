@@ -35,12 +35,14 @@ query pool_detail($address: String!) {
     }
   }
 
-  pool_hourly_data(address: $address) {
+  pool_hourly_data(address: $address, limit:1500, reverse:true) {
     time
     price
+    price_usd
     tvl_coin
     tvl_pc
     tvl_usd
     volume
+    volume_usd
   }
 }
