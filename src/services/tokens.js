@@ -10,7 +10,7 @@ const overlay = {
         "address": "CsZ5LZkDS7h9TDKjrbL7VAwQZ9nsRu8vJLhRYfmGaN8K",
         "name": "Wrapped ALEPH (Sollet)",
         "decimals": 6,
-        "symbol": "ALEPH",
+        "symbol": "soALEPH",
         "logoURI": "https://ipfs.io/ipfs/QmQxzDZzQJJ4Jb1npvLYbXZjHDCyqywHWBADcJbGWJGEqW/Aleph.im%20-%20Token/Aleph.im-Token-v1.1.png"
     }
 }
