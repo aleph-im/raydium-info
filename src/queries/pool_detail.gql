@@ -3,6 +3,7 @@ query pool_detail($address: String!) {
     ammId
     name
     version
+    serumProgramId
     coin {
       address
       name

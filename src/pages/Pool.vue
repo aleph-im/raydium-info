@@ -14,6 +14,7 @@
         <img :src="pool.pc.logoURI" />
       </q-avatar>
       {{ pool.coin.symbol }}-{{ pool.pc.symbol }} Pool
+      <img v-if="pool.serumProgramId == 'srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX'" src="../assets/open-book.svg" alt="OpenBook" align="center"/>
     </h4>
     <div class="flex q-mb-md justify-between">
       <div class="row q-gutter-sm" v-if="pool.stats.price !== null">

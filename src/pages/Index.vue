@@ -59,6 +59,7 @@
                 <q-tooltip>
                   {{ props.row.coin.name }} / {{ props.row.pc.name }}
                 </q-tooltip>
+              <img v-if="props.row.serumProgramId == 'srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX'" src="../assets/open-book.svg" alt="OpenBook" align="center"/>
               </router-link>
             </q-td>
             <q-td key="tvl" :props="props">

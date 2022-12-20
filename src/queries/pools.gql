@@ -3,6 +3,7 @@
         ammId
         name
         version
+        serumProgramId
         coin {
             chainId
             address
